@@ -1,0 +1,24 @@
+<h1>Link generator</h1>
+<p>
+    warning! going to other pages WILL NOT WORK!
+    this will not bypass a bloocked page. however it will make it harder to see the true url of the page in question.
+</p>
+<br>
+<p>
+    some pages will not work
+</p>
+<input id="link_input" type="url">
+<input type="button" onclick="generate_url()">
+<a id="output" href="">to page!</a>
+<script>
+    a= "<iframe width=\"100%\" height=\"100%\" styles=\"border:none;\" src=\""
+    b= "\" ></iframe>"
+    function generate_url() {
+        input=document.getElementById("link_input").value
+        out1=a+encodeURI(input)+b
+        encoded = btoa(out1)
+        out2 = "data:text/html;base64,"+encoded
+        target = document.getElementById("output")
+        target.href=out2
+    }
+</script>
